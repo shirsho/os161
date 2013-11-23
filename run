@@ -1,0 +1,11 @@
+#!/bin/csh
+
+cd ~/ece344/os161/kern/conf
+./config ASST2
+cd ../compile/ASST2
+make depend
+make
+make install
+cd ~/ece344/root
+sys161 kernel
+

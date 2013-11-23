@@ -1,0 +1,502 @@
+sys161: System/161 release 1.14, compiled Sep 11 2012 06:05:16
+
+OS/161 base system version 1.11
+Copyright (c) 2000, 2001, 2002, 2003
+   President and Fellows of Harvard College.  All rights reserved.
+
+Put-your-group-name-here's system version 0 (ASST2 #1)
+
+Cpu is MIPS r2000/r3000
+1876k physical memory available
+Device probe...
+lamebus0 (system main bus)
+emu0 at lamebus0
+ltrace0 at lamebus0
+ltimer0 at lamebus0
+hardclock on ltimer0 (100 hz)
+beep0 at ltimer0
+rtclock0 at ltimer0
+lrandom0 at lamebus0
+random0 at lrandom0
+lhd0 at lamebus0
+lhd1 at lamebus0
+lser0 at lamebus0
+con0 at lser0
+pseudorand0 (virtual)
+
+Hello World
+OS/161 kernel [? for menu]: p /testbin/os161testerprog 
+p /testbin/os161testerprog 
+001111222222223333333333333333sys161: System/161 release 1.14, compiled Sep 11 2012 06:05:16
+
+OS/161 base system version 1.11
+Copyright (c) 2000, 2001, 2002, 2003
+   President and Fellows of Harvard College.  All rights reserved.
+
+Put-your-group-name-here's system version 0 (ASST2 #1)
+
+Cpu is MIPS r2000/r3000
+1876k physical memory available
+Device probe...
+lamebus0 (system main bus)
+emu0 at lamebus0
+ltrace0 at lamebus0
+ltimer0 at lamebus0
+hardclock on ltimer0 (100 hz)
+beep0 at ltimer0
+rtclock0 at ltimer0
+lrandom0 at lamebus0
+random0 at lrandom0
+lhd0 at lamebus0
+lhd1 at lamebus0
+lser0 at lamebus0
+con0 at lser0
+pseudorand0 (virtual)
+
+Hello World
+OS/161 kernel [? for menu]: p /testbin/os161testerprog 
+p /testbin/os161testerprog 
+[a] read from NULL
+[b] read from invalid address
+[c] read from kernel address
+[d] write to NULL
+[e] write to invalid address
+[f] write to code segment
+[g] write to kernel address
+[h] jump to NULL
+[i] jump to invalid address
+[j] jump to kernel address
+[k] alignment error
+[l] illegal instruction
+[m] divide by zero
+[n] mod by zero
+[o] Recurse infinitely
+[*] Run everything (in subprocesses)
+Note: [f] may not cause an exception on some platforms, in which
+case it'll appear to fail.
+Choose: aFatal user mode trap 2 (TLB miss on load, epc 0x400100, vaddr 0x0)
+Operation took 0.626556400 seconds
+OS/161 kernel [? for menu]: p /testbin/os161testerprog 
+p /testbin/os161testerprog 
+[a] read from NULL
+[b] read from invalid address
+[c] read from kernel address
+[d] write to NULL
+[e] write to invalid address
+[f] write to code segment
+[g] write to kernel address
+[h] jump to NULL
+[i] jump to invalid address
+[j] jump to kernel address
+[k] alignment error
+[l] illegal instruction
+[m] divide by zero
+[n] mod by zero
+[o] Recurse infinitely
+[*] Run everything (in subprocesses)
+Note: [f] may not cause an exception on some platforms, in which
+case it'll appear to fail.
+Choose: bFatal user mode trap 2 (TLB miss on load, epc 0x400118, vaddr 0x40000000)
+Operation took 0.627686640 seconds
+OS/161 kernel [? for menu]: p /testbin/os161testerprog 
+p /testbin/os161testerprog 
+[a] read from NULL
+[b] read from invalid address
+[c] read from kernel address
+[d] write to NULL
+[e] write to invalid address
+[f] write to code segment
+[g] write to kernel address
+[h] jump to NULL
+[i] jump to invalid address
+[j] jump to kernel address
+[k] alignment error
+[l] illegal instruction
+[m] divide by zero
+[n] mod by zero
+[o] Recurse infinitely
+[*] Run everything (in subprocesses)
+Note: [f] may not cause an exception on some platforms, in which
+case it'll appear to fail.
+Choose: cFatal user mode trap 4 (Address error on load, epc 0x400130, vaddr 0x80000000)
+Operation took 0.598810960 seconds
+OS/161 kernel [? for menu]: p /testbin/os161testerprog 
+p /testbin/os161testerprog 
+[a] read from NULL
+[b] read from invalid address
+[c] read from kernel address
+[d] write to NULL
+[e] write to invalid address
+[f] write to code segment
+[g] write to kernel address
+[h] jump to NULL
+[i] jump to invalid address
+[j] jump to kernel address
+[k] alignment error
+[l] illegal instruction
+[m] divide by zero
+[n] mod by zero
+[o] Recurse infinitely
+[*] Run everything (in subprocesses)
+Note: [f] may not cause an exception on some platforms, in which
+case it'll appear to fail.
+Choose: dFatal user mode trap 3 (TLB miss on store, epc 0x400148, vaddr 0x0)
+Operation took 0.606763040 seconds
+OS/161 kernel [? for menu]: p /testbin/os161testerprog 
+p /testbin/os161testerprog 
+[a] read from NULL
+[b] read from invalid address
+[c] read from kernel address
+[d] write to NULL
+[e] write to invalid address
+[f] write to code segment
+[g] write to kernel address
+[h] jump to NULL
+[i] jump to invalid address
+[j] jump to kernel address
+[k] alignment error
+[l] illegal instruction
+[m] divide by zero
+[n] mod by zero
+[o] Recurse infinitely
+[*] Run everything (in subprocesses)
+Note: [f] may not cause an exception on some platforms, in which
+case it'll appear to fail.
+Choose: eFatal user mode trap 3 (TLB miss on store, epc 0x400158, vaddr 0x40000000)
+Operation took 0.627621960 seconds
+OS/161 kernel [? for menu]: p /testbin/os161testerprog 
+p /testbin/os161testerprog 
+[a] read from NULL
+[b] read from invalid address
+[c] read from kernel address
+[d] write to NULL
+[e] write to invalid address
+[f] write to code segment
+[g] write to kernel address
+[h] jump to NULL
+[i] jump to invalid address
+[j] jump to kernel address
+[k] alignment error
+[l] illegal instruction
+[m] divide by zero
+[n] mod by zero
+[o] Recurse infinitely
+[*] Run everything (in subprocesses)
+Note: [f] may not cause an exception on some platforms, in which
+case it'll appear to fail.
+Choose: gFatal user mode trap 5 (Address error on store, epc 0x400178, vaddr 0x80000000)
+Operation took 0.598353000 seconds
+OS/161 kernel [? for menu]: p /testbin/os161testerprog 
+p /testbin/os161testerprog 
+[a] read from NULL
+[b] read from invalid address
+[c] read from kernel address
+[d] write to NULL
+[e] write to invalid address
+[f] write to code segment
+[g] write to kernel address
+[h] jump to NULL
+[i] jump to invalid address
+[j] jump to kernel address
+[k] alignment error
+[l] illegal instruction
+[m] divide by zero
+[n] mod by zero
+[o] Recurse infinitely
+[*] Run everything (in subprocesses)
+Note: [f] may not cause an exception on some platforms, in which
+case it'll appear to fail.
+Choose: hFatal user mode trap 2 (TLB miss on load, epc 0x40018c, vaddr 0x0)
+Operation took 0.616318040 seconds
+OS/161 kernel [? for menu]: p /testbin/os161testerprog 
+p /testbin/os161testerprog 
+[a] read from NULL
+[b] read from invalid address
+[c] read from kernel address
+[d] write to NULL
+[e] write to invalid address
+[f] write to code segment
+[g] write to kernel address
+[h] jump to NULL
+[i] jump to invalid address
+[j] jump to kernel address
+[k] alignment error
+[l] illegal instruction
+[m] divide by zero
+[n] mod by zero
+[o] Recurse infinitely
+[*] Run everything (in subprocesses)
+Note: [f] may not cause an exception on some platforms, in which
+case it'll appear to fail.
+Choose: iFatal user mode trap 2 (TLB miss on load, epc 0x4001b0, vaddr 0x40000000)
+Operation took 0.607553960 seconds
+OS/161 kernel [? for menu]: p /testbin/os161testerprog 
+p /testbin/os161testerprog 
+[a] read from NULL
+[b] read from invalid address
+[c] read from kernel address
+[d] write to NULL
+[e] write to invalid address
+[f] write to code segment
+[g] write to kernel address
+[h] jump to NULL
+[i] jump to invalid address
+[j] jump to kernel address
+[k] alignment error
+[l] illegal instruction
+[m] divide by zero
+[n] mod by zero
+[o] Recurse infinitely
+[*] Run everything (in subprocesses)
+Note: [f] may not cause an exception on some platforms, in which
+case it'll appear to fail.
+Choose: jFatal user mode trap 4 (Address error on load, epc 0x4001d4, vaddr 0x80000000)
+Operation took 0.618628120 seconds
+OS/161 kernel [? for menu]: p /testbin/os161testerprog 
+p /testbin/os161testerprog 
+[a] read from NULL
+[b] read from invalid address
+[c] read from kernel address
+[d] write to NULL
+[e] write to invalid address
+[f] write to code segment
+[g] write to kernel address
+[h] jump to NULL
+[i] jump to invalid address
+[j] jump to kernel address
+[k] alignment error
+[l] illegal instruction
+[m] divide by zero
+[n] mod by zero
+[o] Recurse infinitely
+[*] Run everything (in subprocesses)
+Note: [f] may not cause an exception on some platforms, in which
+case it'll appear to fail.
+Choose: kFatal user mode trap 4 (Address error on load, epc 0x4001fc, vaddr 0x7fffff9d)
+Operation took 0.608356840 seconds
+OS/161 kernel [? for menu]: p /testbin/os161testerprog 
+p /testbin/os161testerprog 
+[a] read from NULL
+[b] read from invalid address
+[c] read from kernel address
+[d] write to NULL
+[e] write to invalid address
+[f] write to code segment
+[g] write to kernel address
+[h] jump to NULL
+[i] jump to invalid address
+[j] jump to kernel address
+[k] alignment error
+[l] illegal instruction
+[m] divide by zero
+[n] mod by zero
+[o] Recurse infinitely
+[*] Run everything (in subprocesses)
+Note: [f] may not cause an exception on some platforms, in which
+case it'll appear to fail.
+Choose: lFatal user mode trap 10 (Illegal instruction, epc 0x4001ec, vaddr 0x0)
+Operation took 0.607107440 seconds
+OS/161 kernel [? for menu]: p /testbin/os161testerprog 
+p /testbin/os161testerprog 
+[a] read from NULL
+[b] read from invalid address
+[c] read from kernel address
+[d] write to NULL
+[e] write to invalid address
+[f] write to code segment
+[g] write to kernel address
+[h] jump to NULL
+[i] jump to invalid address
+[j] jump to kernel address
+[k] alignment error
+[l] illegal instruction
+[m] divide by zero
+[n] mod by zero
+[o] Recurse infinitely
+[*] Run everything (in subprocesses)
+Note: [f] may not cause an exception on some platforms, in which
+case it'll appear to fail.
+Choose: mFatal user mode trap 9 (Break instruction, epc 0x400238, vaddr 0x0)
+Operation took 0.616967880 seconds
+OS/161 kernel [? for menu]: p /testbin/os161testerprog 
+p /testbin/os161testerprog 
+[a] read from NULL
+[b] read from invalid address
+[c] read from kernel address
+[d] write to NULL
+[e] write to invalid address
+[f] write to code segment
+[g] write to kernel address
+[h] jump to NULL
+[i] jump to invalid address
+[j] jump to kernel address
+[k] alignment error
+[l] illegal instruction
+[m] divide by zero
+[n] mod by zero
+[o] Recurse infinitely
+[*] Run everything (in subprocesses)
+Note: [f] may not cause an exception on some platforms, in which
+case it'll appear to fail.
+Choose: nFatal user mode trap 9sys161: System/161 release 1.14, compiled Sep 11 2012 06:05:16
+
+OS/161 base system version 1.11
+Copyright (c) 2000, 2001, 2002, 2003
+   President and Fellows of Harvard College.  All rights reserved.
+
+Put-your-group-name-here's system version 0 (ASST2 #1)
+
+Cpu is MIPS r2000/r3000
+1876k physical memory available
+Device probe...
+lamebus0 (system main bus)
+emu0 at lamebus0
+ltrace0 at lamebus0
+ltimer0 at lamebus0
+hardclock on ltimer0 (100 hz)
+beep0 at ltimer0
+rtclock0 at ltimer0
+lrandom0 at lamebus0
+random0 at lrandom0
+lhd0 at lamebus0
+lhd1 at lamebus0
+lser0 at lamebus0
+con0 at lser0
+pseudorand0 (virtual)
+
+Hello World
+OS/161 kernel [? for menu]: p /testbin/os161testerprog 
+p /testbin/os161testerprog 
+
+Entering the faulter program - I should die immediately
+Fatal usersys161: System/161 release 1.14, compiled Sep 11 2012 06:05:16
+
+OS/161 base system version 1.11
+Copyright (c) 2000, 2001, 2002, 2003
+   President and Fellows of Harvard College.  All rights reserved.
+
+Put-your-group-name-here's system version 0 (ASST2 #1)
+
+Cpu is MIPS r2000/r3000
+1876k physical memory available
+Device probe...
+lamebus0 (system main bus)
+emu0 at lamebus0
+ltrace0 at lamebus0
+ltimer0 at lamebus0
+hardclock on ltimer0 (100 hz)
+beep0 at ltimer0
+rtclock0 at ltimer0
+lrandom0 at lamebus0
+random0 at lrandom0
+lhd0 at lamebus0
+lhd1 at lamebus0
+lser0 at lamebus0
+con0 at lser0
+pseudorand0 (virtual)
+
+Hello World
+OS/161 kernel [? for menu]: p /testbin/os161testerprog 2 3
+p /testbin/os161testerprog 2 3
+Answer: 5
+Operation took 0.057861240sys161: System/161 release 1.14, compiled Sep 11 2012 06:05:16
+
+OS/161 base system version 1.11
+Copyright (c) 2000, 2001, 2002, 2003
+   President and Fellows of Harvard College.  All rights reserved.
+
+Put-your-group-name-here's system version 0 (ASST2 #1)
+
+Cpu is MIPS r2000/r3000
+1876k physical memory available
+Device probe...
+lamebus0 (system main bus)
+emu0 at lamebus0
+ltrace0 at lamebus0
+ltimer0 at lamebus0
+hardclock on ltimer0 (100 hz)
+beep0 at ltimer0
+rtclock0 at ltimer0
+lrandom0 at lamebus0
+random0 at lrandom0
+lhd0 at lamebus0
+lhd1 at lamebus0
+lser0 at lamebus0
+con0 at lser0
+pseudorand0 (virtual)
+
+Hello World
+OS/161 kernel [? for menu]: p /testbin/os161testerprog test
+p /testbin/os161testerprog test
+argc: 2
+argv[0]: /testbin/os161testerprog
+argv[1]: test
+argv[2]: [NULLsys161: System/161 release 1.14, compiled Sep 11 2012 06:05:16
+
+OS/161 base system version 1.11
+Copyright (c) 2000, 2001, 2002, 2003
+   President and Fellows of Harvard College.  All rights reserved.
+
+Put-your-group-name-here's system version 0 (ASST2 #1)
+
+Cpu is MIPS r2000/r3000
+1876k physical memory available
+Device probe...
+lamebus0 (system main bus)
+emu0 at lamebus0
+ltrace0 at lamebus0
+ltimer0 at lamebus0
+hardclock on ltimer0 (100 hz)
+beep0 at ltimer0
+rtclock0 at ltimer0
+lrandom0 at lamebus0
+random0 at lrandom0
+lhd0 at lamebus0
+lhd1 at lamebus0
+lser0 at lamebus0
+con0 at lser0
+pseudorand0 (virtual)
+
+Hello World
+OS/161 kernel [? for menu]: p /testbin/os161testerprog 
+p /testbin/os161testerprog 
+kmalloc: Subpage allocator couldn't get a page
+kmalloc: Subpage allocator couldn't get a page
+kmalloc: Subpage allocator couldn't get a page
+kmalloc: Subpage allocator couldn't get a page
+kmalloc: Subpage allocator couldn't get a page
+kmalloc: Subpage allocator couldn't get a page
+kmalloc: Subpage allocator couldn't get a page
+kmalloc: Subpage allocator couldn't get a page
+kmalloc: Subpage allocator couldn't get a page
+kmalloc: Subpage allocator couldn't get a page
+kmalloc: Subpage allocator couldn't get a page
+kmalloc: Subpage allocator couldn't get a page
+kmalloc: Subpage allocator couldn't get a page
+kmalloc: Subpage allocator couldn't get a page
+kmalloc: Subpage allocator couldn't get a page
+kmalloc: Subpage allocator couldn't get a page
+kmalloc: Subpage allocator couldn't get a page
+kmalloc: Subpage allocator couldn't get a page
+kmalloc: Subpage allocator couldn't get a page
+kmalloc: Subpage allocator couldn't get a page
+kmalloc: Subpage allocator couldn't get a page
+kmalloc: Subpage allocator couldn't get a page
+kmalloc: Subpage allocator couldn't get a page
+kmalloc: Subpage allocator couldn't get a page
+kmalloc: Subpage allocator couldn't get a page
+kmalloc: Subpage allocator couldn't get a page
+kmalloc: Subpage allocator couldn't get a page
+kmalloc: Subpage allocator couldn't get a page
+kmalloc: Subpage allocator couldn't get a page
+kmalloc: Subpage allocator couldn't get a page
+kmalloc: Subpage allocator couldn't get a page
+kmalloc: Subpage allocator couldn't get a page
+kmalloc: Subpage allocator couldn't get a page
+kmalloc: Subpage allocator couldn't get a page
+kmalloc: Subpage allocator couldn't get a page
+kmalloc: Subpage allocator couldn't get a page
+kmalloc: Subpage allocator couldn't get a page
+kmalloc: Subpage allocator couldn't get a page
+kmalloc: Subpage allocator couldn't get a page
+k

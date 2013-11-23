@@ -1,0 +1,4 @@
+palin, 4, 4
+crash, 6, 5
+add, 5, 5
+argtest, 8, 8

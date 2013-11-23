@@ -1,0 +1,223 @@
+Index: kern/include/hello.h
+===================================================================
+--- kern/include/hello.h	(.../asst0-start)	(revision 0)
++++ kern/include/hello.h	(.../asst0-end)	(revision 17)
+@@ -0,0 +1,7 @@
++#ifndef _HELLO_H_
++#define _HELLO_H_
++
++void hello(void);
++
++
++#endif /*_HELLO_H_ */
+\ No newline at end of file
+Index: kern/main/hello.c
+===================================================================
+--- kern/main/hello.c	(.../asst0-start)	(revision 0)
++++ kern/main/hello.c	(.../asst0-end)	(revision 17)
+@@ -0,0 +1,21 @@
++#include <types.h>
++#include <kern/errno.h>
++#include <kern/unistd.h>
++#include <lib.h>
++#include <machine/spl.h>
++#include <test.h>
++#include <synch.h>
++#include <thread.h>
++#include <scheduler.h>
++#include <dev.h>
++#include <vfs.h>
++#include <vm.h>
++#include <syscall.h>
++#include <version.h>
++#include <hello.h>
++
++void hello(void){
++	
++	kprintf("Hello World\n");
++
++}
+\ No newline at end of file
+Index: kern/main/main.c
+===================================================================
+--- kern/main/main.c	(.../asst0-start)	(revision 17)
++++ kern/main/main.c	(.../asst0-end)	(revision 17)
+@@ -16,6 +16,7 @@
+ #include <vm.h>
+ #include <syscall.h>
+ #include <version.h>
++#include <hello.h>
+ 
+ /*
+  * These two pieces of data are maintained by the makefiles and build system.
+@@ -77,6 +78,8 @@
+ 	dev_bootstrap();
+ 	vm_bootstrap();
+ 	kprintf_bootstrap();
++	
++	hello();
+ 
+ 	/* Default bootfs - but ignore failure, in case emu0 doesn't exist */
+ 	vfs_setbootfs("emu0");
+Index: kern/main/menu.c
+===================================================================
+--- kern/main/menu.c	(.../asst0-start)	(revision 17)
++++ kern/main/menu.c	(.../asst0-end)	(revision 17)
+@@ -132,6 +132,8 @@
+ 	return common_prog(nargs, args);
+ }
+ 
++
++
+ /*
+  * Command for starting the system shell.
+  */
+@@ -379,6 +381,7 @@
+ static const char *opsmenu[] = {
+ 	"[s]       Shell                     ",
+ 	"[p]       Other program             ",
++	"[dbflags] Debug flags               ",
+ 	"[mount]   Mount a filesystem        ",
+ 	"[unmount] Unmount a filesystem      ",
+ 	"[bootfs]  Set \"boot\" filesystem     ",
+@@ -455,7 +458,110 @@
+ 	NULL
+ };
+ 
++static const char *dgflagsmenu[] = {
++	"[df 1 on/off]        DB_LOCORE      ",
++	"[df 2 on/off]        DB_SYSCALL     ",
++	"[df 3 on/off]        DB_INTERRUPT   ",
++	"[df 4 on/off]        DB_DEVICE      ",
++	"[df 5 on/off]        DB_THREADS     ",
++	"[df 6 on/off]        DB_VM          ",
++	"[df 7 on/off]        DB_EXEC        ",
++	"[df 8 on/off]        DB_VFS         ",
++	"[df 9 on/off]        DB_SFS         ",
++	"[df 10 on/off]       DB_NET         ",
++	"[df 11 on/off]       DB_NETFS       ",
++	"[df 12 on/off]       DB_KMALLOC     ",
++	NULL
++};
++
++/*
++ * Command for db flags menu
++*/
++
+ static
++int cmd_dbflags(int n, char **a)
++{
++	
++	(void)a;
++	
++	if (n != 1) {
++		kprintf("Usage: dbflags\n");
++		return EINVAL;
++	}
++
++	showmenu("OS/161 Debug flags", dgflagsmenu);
++	kprintf("Current value of dbflags is %#x\n",dbflags);
++	return 0;
++
++
++}
++
++static
++int cmd_df(int n,char **a)
++{
++
++    char* db_number;
++	char* on_off;
++	int db_int;
++	db_number = a[1];
++	db_int = atoi(db_number);
++	//kprintf("%d\n",db_int);
++	
++	on_off = a[2] ;
++	//kprintf("%s\n",on_off);
++	if ((n != 3) || (db_int<1) || (db_int>12) || ((strcmp(on_off,"on")!= 0) && (strcmp(on_off,"off")!= 0))){
++		kprintf("Usage: df nr on/off\n");
++		return EINVAL;
++	}
++	u_int32_t temp_value;
++	if (db_int == 1) {
++		temp_value = DB_LOCORE;
++	}
++	if (db_int == 2) {
++		temp_value = DB_SYSCALL;
++	}
++	if (db_int == 3){
++		temp_value = DB_INTERRUPT;
++	}
++	if (db_int == 4){
++		temp_value = DB_DEVICE;
++	}
++	if (db_int == 5){
++		temp_value = DB_THREADS; 
++	}
++	if (db_int == 6){
++		temp_value = DB_VM; 
++	}
++	if (db_int == 7) {
++		temp_value = DB_EXEC;
++	}
++	if (db_int == 8) {
++		temp_value = DB_VFS;
++	}
++	if (db_int == 9){
++		temp_value = DB_SFS;
++	}
++	if (db_int == 10){
++		temp_value = DB_NET;
++	}
++	if (db_int == 11){
++		temp_value = DB_NETFS; 
++	}
++	if (db_int == 12){
++		temp_value = DB_KMALLOC; 
++	}
++	
++	if(strcmp(on_off,"on")== 0){
++		dbflags = dbflags | temp_value;
++	}
++	
++	if(strcmp(on_off,"off")== 0){
++	   dbflags = dbflags & (0xfff - temp_value);
++	}
++	return 0;
++}
++
++static
+ int
+ cmd_mainmenu(int n, char **a)
+ {
+@@ -484,6 +590,7 @@
+ 	/* operations */
+ 	{ "s",		cmd_shell },
+ 	{ "p",		cmd_prog },
++	{ "dbflags", cmd_dbflags },
+ 	{ "mount",	cmd_mount },
+ 	{ "unmount",	cmd_unmount },
+ 	{ "bootfs",	cmd_bootfs },
+@@ -495,6 +602,9 @@
+ 	{ "q",		cmd_quit },
+ 	{ "exit",	cmd_quit },
+ 	{ "halt",	cmd_quit },
++	
++	/* df on/off */
++	{"df",      cmd_df   },
+ 
+ #if OPT_SYNCHPROBS
+ 	/* in-kernel synchronization problems */
+Index: kern/conf/conf.kern
+===================================================================
+--- kern/conf/conf.kern	(.../asst0-start)	(revision 17)
++++ kern/conf/conf.kern	(.../asst0-end)	(revision 17)
+@@ -372,6 +372,7 @@
+ 
+ file      main/main.c
+ file      main/menu.c
++file      main/hello.c
+ 
+ #
+ # User-level programming/system call support
